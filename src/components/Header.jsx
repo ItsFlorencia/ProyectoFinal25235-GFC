@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css';
 import logoFlora from '../assets/flora1.jpg'; 
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Form, FormControl, Button, Image } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,13 +17,14 @@ const Header = () => {
                 alt="Flora Logo"
                 width="100" 
                 height="100" 
-                className="d-inline-block align-top me-2"
+                className="d-inline-block align-top me-2 rounded-circle" 
             />
           
         </Navbar.Brand>
 
        <Nav className="me-auto align-items-center">
           <Nav.Link as={Link} to="/" className="me-3 fs-4">Home</Nav.Link>
+          <Nav.Link as={Link} to="/productos" className="me-3 fs-4">Productos</Nav.Link>
           <Nav.Link as={Link} to="/ofertas" className="me-3 fs-4">Ofertas</Nav.Link>
           <Nav.Link as={Link} to="/infaltables" className="me-3 fs-4">Infaltables</Nav.Link>
           </Nav>
@@ -36,7 +37,7 @@ const Header = () => {
             />
                <Button className="btn-lg btn-custom-search">
                   <FontAwesomeIcon icon={faSearch}
-                  className="icon-lupa-color" /> {/* Ícono de lupa */}
+                  className="icon-lupa-color" /> 
                 </Button>
           </Form>       
 

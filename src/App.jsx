@@ -4,7 +4,8 @@ import Home from './components/Home';
 import Ofertas from './components/Ofertas';
 import Infaltables from './components/Infaltables';
 import Login from './components/Login'; 
-import Footer from './components/Footer'
+import Footer from './components/Footer';
+import Productos from './components/Productos';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/administracion" element={<Login />} />
         <Route path="/" element={<Home />} />
+        <Route path="/productos" element={<Productos />} />
         <Route path="/ofertas" element={<Ofertas />} />
         <Route path="/infaltables" element={<Infaltables />} />
       </Routes>
