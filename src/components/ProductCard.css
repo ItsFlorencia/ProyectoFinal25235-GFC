@@ -1,0 +1,14 @@
+.btn-custom-add {
+  /* Fondo principal con el color deseado */
+  background-color: #8E4585 !important; 
+  /* Asegura que el texto sea blanco para que contraste */
+  color: white !important; 
+  /* Remueve el borde de Bootstrap para que se vea limpio */
+  border-color: #8E4585 !important; 
+}
+
+/* Opcional: Estilo al pasar el mouse (hover) */
+.btn-custom-add:hover {
+  background-color: #7A3C72 !important; /* Un tono ligeramente más oscuro */
+  border-color: #7A3C72 !important;
+}

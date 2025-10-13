@@ -1,0 +1,23 @@
+
+.bg-verde-grisaceo {
+    background-color: #BAC095 !important; 
+}
+
+.search-input {
+    width: 300px !important; 
+    min-width: 150px; 
+}
+
+.icon-lupa-color {
+    color: white; 
+}
+
+.btn-custom-search {
+  background-color: #636B2F !important;
+  border-color: #636B2F !important;
+ }
+
+.btn-custom-search:hover {
+  background-color: #3D4127 !important; 
+  border-color: #4A5126 !important;
+}
