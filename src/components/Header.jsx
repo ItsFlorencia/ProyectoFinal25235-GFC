@@ -46,8 +46,10 @@ const Header = () => {
             <Button variant="outline-light" as={Link} to="/administracion" className="me-4">
               Administración
             </Button>
-            <Link to="/carrito" className="text-white">
-              <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+            <Link to="/carrito" 
+            className="text-white no-underline" >
+            <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+            Carrito
             </Link>
           </div>
         </Nav>

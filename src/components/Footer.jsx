@@ -24,7 +24,7 @@ const Footer = () => {
           
        
           <Col md={4} className="text-center">
-            <p className="mb-0">Redes Sociales</p>
+            <p className="mb-3">Redes Sociales</p>
             <div>
               <a href="#" className="text-white me-3">
                 <i className="fa fa-facebook fa-2x"></i>
