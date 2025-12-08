@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
-  return (
+   return (
     <Navbar  variant="dark" expand="lg" className="mb-4 bg-verde-grisaceo">
       <Container>       
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
@@ -50,6 +50,8 @@ const Header = () => {
             className="text-white no-underline" >
             <FontAwesomeIcon icon={faShoppingCart} size="lg" />
             Carrito
+            
+           
             </Link>
           </div>
         </Nav>
