@@ -12,7 +12,7 @@ const ProductCard = ({ product, agregarAlCarrito }) => {
         src={product.image}
         alt={product.title}
         className="card-img-top img-fluid mt-3" 
-        style={{ height: '200px', objectFit:'contain'}} 
+        style={{ height: '350px', objectFit:'cover'}} 
       />
 
       

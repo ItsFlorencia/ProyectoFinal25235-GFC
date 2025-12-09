@@ -51,15 +51,21 @@ const Header = () => {
               Administración
             </Button>
             <Link to="/carrito" 
-            className="text-white no-underline" >
-            <FontAwesomeIcon icon={faShoppingCart} size="lg" />
-            Carrito
-              {totalItems > 0 && (
-                <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle">
-                  {totalItems}
-                </Badge>
-              )}
-           
+             className="text-white no-underline d-flex align-items-center"> 
+              <span className="d-inline-block position-relative me-1">  
+                <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+                
+                 {totalItems > 0 && (
+                    
+                    <Badge 
+                      pill 
+                      bg="danger" 
+                      className="position-absolute top-0 start-100 translate-middle z-3">
+                      {totalItems}
+                    </Badge>
+                  )}
+              </span>
+              Carrito
             </Link>
           </div>
         </Nav>
