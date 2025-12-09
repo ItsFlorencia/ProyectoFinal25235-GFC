@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css';
 import logoFlora from '../assets/flora1.jpg'; 
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Form, FormControl, Button, Image } from 'react-bootstrap';
+import { Navbar, Nav, Container, Form, FormControl, Button, Image, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from './CartContext';
 
 const Header = () => {
+  const { carrito } = useContext(CartContext);
+  const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0)
+
    return (
     <Navbar  variant="dark" expand="lg" className="mb-4 bg-verde-grisaceo">
       <Container>       
@@ -50,7 +54,11 @@ const Header = () => {
             className="text-white no-underline" >
             <FontAwesomeIcon icon={faShoppingCart} size="lg" />
             Carrito
-            
+              {totalItems > 0 && (
+                <Badge pill bg="danger" className="position-absolute top-0 start-100 translate-middle">
+                  {totalItems}
+                </Badge>
+              )}
            
             </Link>
           </div>
