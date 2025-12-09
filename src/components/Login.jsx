@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form, Button, Container, Row, Col, Card } from 'react-bootstrap';
 
 const Login = () => {
+  const [user, setUser] = useState('');
+  const [pass, setPass] = useState('');
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Login enviado');
+    if (user === 'admin' && pass === '1234') {
+      navigate('/crud');
+    } else {
+      alert('Usuario o contraseña incorrectos');
+    }
   };
 
   return (
@@ -17,11 +26,13 @@ const Login = () => {
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formUsername">
                   <Form.Label>Usuario</Form.Label>
-                  <Form.Control type="text" placeholder="Ingrese su usuario" required />
+                  <Form.Control type="text" placeholder="Ingrese su usuario" 
+                  value={user} onChange={e => setUser(e.target.value)} required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formPassword">
                   <Form.Label>Contraseña</Form.Label>
-                  <Form.Control type="password" placeholder="Ingrese su contraseña" required />
+                  <Form.Control type="password" placeholder="Ingrese su contraseña" 
+                   value={pass} onChange={e => setPass(e.target.value)} required />
                 </Form.Group>
                 <Button variant="secondary" type="submit" className="w-100">
                   Ingresar

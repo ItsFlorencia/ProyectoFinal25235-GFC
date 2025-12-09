@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button, Form, Modal } from "react-bootstrap";
 
-const API_URL = "https://68489b9bec44b9f349416b0e.mockapi.io/api/productos";
+const API_URL = "https://693360d4e5a9e342d2729e37.mockapi.io/Products";
 
 const CrudProductos = () => {
   const [productos, setProductos] = useState([]);
