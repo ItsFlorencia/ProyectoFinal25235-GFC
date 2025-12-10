@@ -30,9 +30,9 @@ function App() {
           />
         <Route path="/administracion" element={<Login />} />
         <Route path="/" element={<Home />} />
-        <Route path="/productos" element={<Productos barraDeBusqueda={barraDeBusqueda} />} />
-        <Route path="/ofertas" element={<Ofertas barraDeBusqueda={barraDeBusqueda}/>} />
-        <Route path="/infaltables" element={<Infaltables barraDeBusqueda={barraDeBusqueda} />} />
+        <Route path="/productos" element={<Productos />} />
+        <Route path="/ofertas" element={<Ofertas />} />
+        <Route path="/infaltables" element={<Infaltables  />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/crud" element={<CrudProductos />} />
       </Routes>

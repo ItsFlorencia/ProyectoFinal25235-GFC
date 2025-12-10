@@ -1,12 +1,11 @@
 import React from 'react';
 import ProductList from './ProductList';
 
-const Ofertas = ({ barraDeBusqueda }) => {
+const Ofertas = () => {
   return (
     <div className="container">
       <h1>Ofertas</h1>
-      <ProductList category="ofertas"
-      barraDeBusqueda={barraDeBusqueda} />
+      <ProductList category="ofertas"/>
     </div>
   );
 };

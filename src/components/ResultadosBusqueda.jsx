@@ -25,15 +25,26 @@ const ResultadosBusqueda = ({ barraDeBusqueda }) => {
         // Si hay un término, cargar los datos (la lógica de fetch existente)
         if (term.length > 0) {
             setLoading(true);
-            const urls = [API_PRODUCTS, API_OFERTAS, API_INFALTABLES];
-            
-            Promise.all(urls.map(url => 
-                fetch(url).then(res => res.json()).catch(error => {
-                    console.error(`Error fetching ${url}:`, error);
-                    return [];
-                })
+            const urls = [
+                { url: API_PRODUCTS, source: 'prod' },
+                { url: API_OFERTAS, source: 'ofert' },
+                { url: API_INFALTABLES, source: 'infalt' },
+            ];
+
+           Promise.all(urls.map(({ url, source }) => 
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => 
+                        // **ESTE ES EL CAMBIO CLAVE:** Creamos un ID único (ej: 'ofert-1', 'infalt-1')
+                        data.map(product => ({ ...product, id: `${source}-${product.id}` })) 
+                    )
+                    .catch(error => {
+                        console.error(`Error fetching ${url}:`, error);
+                        return [];
+                    })
             ))
             .then(dataArrays => {
+                // 2. Combinamos todos los arrays de productos con IDs únicos
                 const combined = dataArrays.flat(); 
                 setAllProducts(combined);
                 setLoading(false);
