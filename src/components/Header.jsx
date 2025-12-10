@@ -18,7 +18,18 @@ const Header = ({ barraDeBusqueda, setBarraDeBusqueda }) => {
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         // 1. Navegar a la ruta /search
-        navigate(`/search`); 
+       if (barraDeBusqueda.trim()) {
+            // Opcional: Navegar con el término en la URL para que se mantenga en el historial
+            // navigate(`/search?q=${encodeURIComponent(barraDeBusqueda.trim())}`); 
+            navigate(`/search`);
+        } else {
+             // Navegar incluso si está vacío si quieres mostrar la página de resultados
+             navigate(`/search`); 
+        }
+        
+        // **2. Limpiar la barra de búsqueda (opcional)**
+        // setBarraDeBusqueda("");
+    
     };
    return (
     <Navbar  variant="dark" expand="lg" className="mb-4 bg-verde-grisaceo">
@@ -41,14 +52,16 @@ const Header = ({ barraDeBusqueda, setBarraDeBusqueda }) => {
           <Nav.Link as={Link} to="/ofertas" className="me-3 fs-4">Ofertas</Nav.Link>
           <Nav.Link as={Link} to="/infaltables" className="me-3 fs-4">Infaltables</Nav.Link>
           </Nav>
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={handleSearchSubmit}>
             <Form.Control
               type="search"
               placeholder="Buscar productos..."
               className="me-2 form-control search-input" 
               aria-label="Search"
-            />
-               <Button className="btn-lg btn-custom-search">
+              value={barraDeBusqueda} 
+              onChange={(e) => setBarraDeBusqueda(e.target.value)}
+            />            
+               <Button type="submit" className="btn-lg btn-custom-search">
                   <FontAwesomeIcon icon={faSearch}
                   className="icon-lupa-color" /> 
                 </Button>

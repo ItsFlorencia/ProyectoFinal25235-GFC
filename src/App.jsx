@@ -11,18 +11,18 @@ import { CartProvider } from './components/CartContext';
 import Carrito from './components/Carrito'; 
 import CrudProductos from './components/CrudProductos';
 import ResultadosBusqueda from './components/ResultadosBusqueda';
-import { useState } from 'react';
+
 
 function App() {
-  const [barraDeBusqueda, setBarraDeBusqueda] = useState("")
+  const [barraDeBusqueda, setBarraDeBusqueda] = useState("");
   
   return (
       <CartProvider>
      <Router>
-      <Header />
+      <Header 
           barraDeBusqueda={barraDeBusqueda}
           setBarraDeBusqueda={setBarraDeBusqueda}
-
+      />
       <Routes>
         <Route 
             path="/search" 
@@ -42,4 +42,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
