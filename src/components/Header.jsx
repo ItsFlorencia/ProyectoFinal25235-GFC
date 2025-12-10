@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
 import logoFlora from '../assets/flora1.jpg'; 
 import { Link } from 'react-router-dom';
@@ -7,10 +8,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from './CartContext';
 
-const Header = () => {
-  const { carrito } = useContext(CartContext);
-  const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0)
+const Header = ({ barraDeBusqueda, setBarraDeBusqueda }) => {
+    
+    const navigate = useNavigate(); 
+    const { carrito } = useContext(CartContext);
+    const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
 
+    // Función para manejar el envío del formulario
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        // 1. Navegar a la ruta /search
+        navigate(`/search`); 
+    };
    return (
     <Navbar  variant="dark" expand="lg" className="mb-4 bg-verde-grisaceo">
       <Container>       
@@ -25,7 +34,7 @@ const Header = () => {
             />
           
         </Navbar.Brand>
-
+      <Navbar.Collapse id="responsive-navbar-nav">
        <Nav className="me-auto align-items-center">
           <Nav.Link as={Link} to="/" className="me-3 fs-4">Home</Nav.Link>
           <Nav.Link as={Link} to="/productos" className="me-3 fs-4">Productos</Nav.Link>
@@ -69,6 +78,7 @@ const Header = () => {
             </Link>
           </div>
         </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
